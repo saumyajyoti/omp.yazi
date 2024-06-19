@@ -3,7 +3,7 @@ oh-my-posh prompt plugin for [Yazi](https://github.com/sxyazi/yazi) file manager
 
 ## Requirements
 
-- [Yazi](https://github.com/sxyazi/yazi) v0.2.5+
+- [Yazi](https://github.com/sxyazi/yazi) Need latest main branch code, Needs the latest commit, **1f56203** 
 
 ## Installation
 
