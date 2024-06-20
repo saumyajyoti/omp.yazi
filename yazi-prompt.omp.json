@@ -1,0 +1,158 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "var": {
+    "RightSep": "", // "\ue0b0"
+    "LeftSep": "", // "\ue0b2"
+    "RightSepRound": "", // "\ue0b4"
+    "LeftSepRound": "", // "\ue0b6"
+    "RightDelim": "", // "\ue0b1"
+    "LeftDelim": "", // "\ue0b3"
+    "Dir": "📂", // " "
+    "Time": "🕓",
+    "Duration": "⌛",
+    "Tag": "🔖 ",
+    "Home": "🏠",
+    "Documents": "📝",
+    "Downloads": "📥",
+    "Music": "🎵",
+    "Pictures": "🖼️",
+    "ssh": "🌐",
+    "GitHub": "",
+    "Exit": "↩️",
+    "root": "🔴",
+    "user": "👤",
+    "Host": " "
+  },
+  "palette": {
+    // set palette default colors
+    "gb_dark0_hard": "#1d2021", // 234])     " 29-32-33
+    "gb_dark0": "#282828", // 235])     " 40-40-40
+    "gb_dark0_soft": "#32302f", // 236])     " 50-48-47
+    "gb_dark1": "#3c3836", // 237])     " 60-56-54
+    "gb_dark2": "#504945", // 239])     " 80-73-69
+    "gb_dark3": "#665c54", // 241])     " 102-92-84
+    "gb_dark4": "#7c6f64", // 243])     " 124-111-100
+    "gb_dark4_256": "#7c6f64", // 243])     " 124-111-100
+    "gb_gray_245": "#928374", // 245])     " 146-131-116
+    "gb_gray_244": "#928374", // 244])     " 146-131-116
+    "gb_light0_hard": "#f9f5d7", // 230])     " 249-245-215
+    "gb_light0": "#fbf1c7", // 229])     " 253-244-193
+    "gb_light0_soft": "#f2e5bc", // 228])     " 242-229-188
+    "gb_light1": "#ebdbb2", // 223])     " 235-219-178
+    "gb_light2": "#d5c4a1", // 250])     " 213-196-161
+    "gb_light3": "#bdae93", // 248])     " 189-174-147
+    "gb_light4": "#a89984", // 246])     " 168-153-132
+    "gb_light4_256": "#a89984", // 246])     " 168-153-132
+    "gb_bright_red": "#fb4934", // 167])     " 251-73-52
+    "gb_bright_green": "#b8bb26", // 142])     " 184-187-38
+    "gb_bright_yellow": "#fabd2f", // 214])     " 250-189-47
+    "gb_bright_blue": "#83a598", // 109])     " 131-165-152
+    "gb_bright_purple": "#d3869b", // 175])     " 211-134-155
+    "gb_bright_aqua": "#8ec07c", // 108])     " 142-192-124
+    "gb_bright_orange": "#fe8019", // 208])     " 254-128-25
+    "gb_neutral_red": "#cc241d", // 124])     " 204-36-29
+    "gb_neutral_green": "#98971a", // 106])     " 152-151-26
+    "gb_neutral_yellow": "#d79921", // 172])     " 215-153-33
+    "gb_neutral_blue": "#458588", // 66])      " 69-133-136
+    "gb_neutral_purple": "#b16286", // 132])     " 177-98-134
+    "gb_neutral_aqua": "#689d6a", // 72])      " 104-157-106
+    "gb_neutral_orange": "#d65d0e", // 166])     " 214-93-14
+    "gb_faded_red": "#9d0006", // 88])      " 157-0-6
+    "gb_faded_green": "#79740e", // 100])     " 121-116-14
+    "gb_faded_yellow": "#b57614", // 136])     " 181-118-20
+    "gb_faded_blue": "#076678", // 24])      " 7-102-120
+    "gb_faded_purple": "#8f3f71", // 96])      " 143-63-113
+    "gb_faded_aqua": "#427b58", // 65])      " 66-123-88
+    "gb_faded_orange": "#af3a03" // 130])     " 175-58-3
+  },
+
+  "pwd": "osc7",
+  // "shell_integration": true,
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+       
+        {
+          "background": "p:gb_bright_purple",
+          "foreground": "p:gb_dark0_hard",
+          "leading_diamond": "\ue0b6", // 
+          "style": "diamond",
+          "template": "{{if .Root}}{{.Var.root}} {{.UserName}} {{else}}{{.Var.user}} {{.UserName}} {{end}} @ {{ .HostName }}{{ if .SSHSession }} {{.Var.ssh}}{{ end }}", 
+          "trailing_diamond": "",
+          "type": "session"
+        },
+        {
+          "background": "p:gb_bright_aqua",
+          "foreground": "transparent",
+          "leading_diamond": "<transparent,#427b58></>",
+          "trailing_diamond": "",
+          "properties": {
+            "folder_separator_icon": "  ",
+            "home_icon": "🏠",
+            "style": "mixed",
+            "mixed_threshold": 6,
+            "max_depth": 2,
+            "max_width": 6,
+            "folder_icon": "",
+            "mapped_locations": {
+              "D:/SOURCE/github-intel/*": " ⅈ",
+              "V:/github-intel/*": " ⅈ"
+            }
+          },
+          "style": "diamond",
+          "template": "<#fabd2f,#427b58>{{.Var.Dir}}{{.StackCount}}</><#427b58,p:gb_bright_aqua>{{.Var.RightSep}}</><transparent,p:gb_bright_aqua> {{ .Path}}</>",
+          "type": "path"
+        },
+        {
+          "background": "#fffb38",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
+            "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+            "{{ if gt .Behind 0 }}#B388FF{{ end }}"
+          ],
+          "foreground": "#193549",
+          "leading_diamond": "<transparent,background></>",
+
+          "properties": {
+            "branch_max_length": 35,
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "diamond",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }} -> {{.Upstream}}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf51e {{ .StashCount }}{{ end }} ",
+          "trailing_diamond": "",
+          "type": "git"
+        },
+        {
+          "background": "#6CA35E",
+          "foreground": "#ffffff",
+          "powerline_symbol": "",
+          "properties": {
+            "fetch_version": true
+          },
+          "style": "powerline",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "background": "#FFDE57",
+          "foreground": "#111111",
+          "powerline_symbol": "",
+          "properties": {
+            "display_mode": "files",
+            "fetch_virtual_env": false
+          },
+          "style": "powerline",
+          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
+          "type": "python"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+
+  "version": 2
+}
