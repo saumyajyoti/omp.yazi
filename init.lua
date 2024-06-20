@@ -22,7 +22,17 @@ return {
 	end,
 
 	entry = function(_, args)
-		local output = Command("oh-my-posh"):args({ "print", "primary" }):cwd(args[1]):output()
+		local output = Command("oh-my-posh")
+				:args({
+					"print",
+					"primary",
+					"--no-status",
+					"--no-exit-code",
+					"-c",
+					"https://raw.githubusercontent.com/saumyajyoti/omp.yazi/main/yazi-prompt.omp.json",
+				})
+				:cwd(args[1])
+				:output()
 		if output then
 			save(args[1], output.stdout:gsub("^%s+", ""))
 		end
