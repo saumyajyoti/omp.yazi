@@ -1,9 +1,12 @@
 # omp.yazi
+
 oh-my-posh prompt plugin for [Yazi](https://github.com/sxyazi/yazi) file manager.
+
+![screenshot](./screenshot.png)
 
 ## Requirements
 
-- [Yazi](https://github.com/sxyazi/yazi) Need latest main branch code, Needs the latest commit, **1f56203** 
+- [Yazi](https://github.com/sxyazi/yazi) Need latest main branch code, Needs the latest commit, **1f56203**
 
 ## Installation
 
@@ -84,4 +87,3 @@ end
 ## Acknowledgements
 
 - [sxyazi](https://github.com/sxyazi) for providing the code for this plugin.
-  
