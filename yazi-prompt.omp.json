@@ -65,20 +65,18 @@
     "gb_faded_aqua": "#427b58", // 65])      " 66-123-88
     "gb_faded_orange": "#af3a03" // 130])     " 175-58-3
   },
-
   "pwd": "osc7",
   // "shell_integration": true,
   "blocks": [
     {
       "alignment": "left",
       "segments": [
-       
         {
           "background": "p:gb_bright_purple",
           "foreground": "p:gb_dark0_hard",
           "leading_diamond": "\ue0b6", // 
           "style": "diamond",
-          "template": "{{if .Root}}{{.Var.root}} {{.UserName}} {{else}}{{.Var.user}} {{.UserName}} {{end}} @ {{ .HostName }}{{ if .SSHSession }} {{.Var.ssh}}{{ end }}", 
+          "template": "{{if .Root}}{{.Var.root}} {{.UserName}} {{else}}{{.Var.user}} {{.UserName}} {{end}} @ {{ .HostName }}{{ if .SSHSession }} {{.Var.ssh}}{{ end }}",
           "trailing_diamond": "",
           "type": "session"
         },
@@ -101,7 +99,7 @@
             }
           },
           "style": "diamond",
-          "template": "<#fabd2f,#427b58>{{.Var.Dir}}{{.StackCount}}</><#427b58,p:gb_bright_aqua>{{.Var.RightSep}}</><transparent,p:gb_bright_aqua> {{ .Path}}</>",
+          "template": "<#fabd2f,#427b58>{{.Var.Dir}}</><#427b58,p:gb_bright_aqua>{{.Var.RightSep}}</><transparent,p:gb_bright_aqua> {{ .Path}}</>",
           "type": "path"
         },
         {
@@ -114,7 +112,6 @@
           ],
           "foreground": "#193549",
           "leading_diamond": "<transparent,background></>",
-
           "properties": {
             "branch_max_length": 35,
             "fetch_stash_count": true,
@@ -153,6 +150,5 @@
       "type": "prompt"
     }
   ],
-
   "version": 2
 }
