@@ -7,6 +7,10 @@ oh-my-posh prompt plugin for [Yazi](https://github.com/sxyazi/yazi) file manager
 ## Requirements
 
 - [Yazi](https://github.com/sxyazi/yazi) Need latest main branch code, Needs the latest commit.
+    Please use below command to install.
+```cmd
+  cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
+```
 
 ## Installation
 
