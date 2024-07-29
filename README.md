@@ -11,7 +11,7 @@ oh-my-posh prompt plugin for [Yazi](https://github.com/sxyazi/yazi) file manager
 ```cmd
   cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
 ```
-    Or if you're on an arch based distro, you can use your fav AUR helper.
+Or if you're on an arch based distro, you can use your fav AUR helper.
 ```cmd
   paru yazi-git
 ```
