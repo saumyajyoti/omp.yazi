@@ -25,7 +25,6 @@ return {
 				"print",
 				"primary",
 				"--no-status",
-				"--no-exit-code",
 				"-c",
 				"https://raw.githubusercontent.com/saumyajyoti/omp.yazi/main/yazi-prompt.omp.json",
 			})
