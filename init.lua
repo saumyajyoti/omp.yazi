@@ -19,7 +19,7 @@ return {
 		end)
 	end,
 
-	entry = function(_, args)
+	entry = function(_, job)
 		local output = Command("oh-my-posh")
 			:args({
 				"print",
@@ -28,10 +28,10 @@ return {
 				"-c",
 				"https://raw.githubusercontent.com/saumyajyoti/omp.yazi/main/yazi-prompt.omp.json",
 			})
-			:cwd(args[1])
+			:cwd(job.args[1])
 			:output()
 		if output then
-			save(args[1], output.stdout:gsub("^%s+", ""))
+			save(job.args[1], output.stdout:gsub("^%s+", ""))
 		end
 	end,
 }
