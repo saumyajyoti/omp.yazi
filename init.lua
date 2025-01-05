@@ -5,18 +5,32 @@ local save = ya.sync(function(st, cwd, output)
 	end
 end)
 
+local default_config = "https://raw.githubusercontent.com/saumyajyoti/omp.yazi/main/yazi-prompt.omp.json"
+
+local get_config = ya.sync(function(st)
+	return st.config
+end)
+
 return {
-	setup = function(st)
+	setup = function(st, args)
 		Header:children_remove(1, Header.LEFT)
 		Header:children_add(function() return ui.Line.parse(st.output or "") end, 1000, Header.LEFT)
 
-		ps.sub("cd", function()
+		st.config = default_config
+		if args ~= nil and args.config ~= nil then
+			st.config = args.config
+		end
+		
+		local callback =  function()
 			local cwd = cx.active.current.cwd
 			if st.cwd ~= cwd then
 				st.cwd = cwd
 				ya.manager_emit("plugin", { st._id, args = ya.quote(tostring(cwd), true) })
 			end
-		end)
+		end	
+		
+		ps.sub("cd", callback)
+		ps.sub("tab", callback)
 	end,
 
 	entry = function(_, job)
@@ -26,7 +40,7 @@ return {
 				"primary",
 				"--no-status",
 				"-c",
-				"https://raw.githubusercontent.com/saumyajyoti/omp.yazi/main/yazi-prompt.omp.json",
+				get_config(),
 			})
 			:cwd(job.args[1])
 			:output()
