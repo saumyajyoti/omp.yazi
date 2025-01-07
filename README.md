@@ -39,6 +39,12 @@ Add this to `~/.config/yazi/init.lua`:
 require("omp"):setup()
 ```
 
+If you want to define a custom config file, you can specify `config` argument for setup like this:
+
+```lua
+require("omp"):setup({ config = "/home/user/.config/omp.json" })
+```
+
 Make sure you have https://github.com/jandedobbeleer/oh-my-posh installed and in your `PATH`.
 
 ## Extra
