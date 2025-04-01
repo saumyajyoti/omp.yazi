@@ -110,11 +110,18 @@
             "cache_duration": "none",
             "fetch_stash_count": true,
             "fetch_status": true,
-            "fetch_upstream_icon": true
+            "fetch_upstream_icon": true,
+            "status_formats": {
+              "Added": " %d",
+              "Deleted": " %d",
+              "Modified": " %d",
+              "Untracked": " %d",
+              "Unmerged": "󰰧 %d"
+            }
           },
           "leading_diamond": "<transparent,background>\ue0b0</>",
           "trailing_diamond": "\ue0b0",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }} -> {{.Upstream}}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf51e {{ .StashCount }}{{ end }} ",
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }} -> {{.Upstream}}{{ end }}{{ if .Working.Changed }}<p:gb_faded_red> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }}{{ end }}{{ if .Staging.Changed }} <p:gb_faded_green>{{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \uf51e {{ .StashCount }}{{ end }} ",
           "foreground": "#193549",
           "background": "#fffb38",
           "type": "git",
