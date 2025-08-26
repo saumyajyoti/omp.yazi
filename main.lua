@@ -1,7 +1,7 @@
 local save = ya.sync(function(st, cwd, output)
 	if cx.active.current.cwd == Url(cwd) then
 		st.output = output
-		ya.render()
+		ui.render()
 	end
 end)
 
@@ -49,3 +49,4 @@ return {
 		end
 	end,
 }
+
