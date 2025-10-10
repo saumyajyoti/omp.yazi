@@ -1,7 +1,8 @@
 local save = ya.sync(function(st, cwd, output)
 	if cx.active.current.cwd == Url(cwd) then
 		st.output = output
-		ui.render()
+		local render = ui.render or ya.render
+		render()
 	end
 end)
 
@@ -14,21 +15,25 @@ end)
 return {
 	setup = function(st, args)
 		Header:children_remove(1, Header.LEFT)
-		Header:children_add(function() return ui.Line.parse(st.output or "") end, 1000, Header.LEFT)
+		Header:children_add(function()
+			return ui.Line.parse(st.output or "")
+		end, 1000, Header.LEFT)
 
 		st.config = default_config
 		if args ~= nil and args.config ~= nil then
 			st.config = args.config
 		end
-		
-		local callback =  function()
+
+		local callback = function()
 			local cwd = cx.active.current.cwd
 			if st.cwd ~= cwd then
 				st.cwd = cwd
-				ya.manager_emit("plugin", { st._id, ya.quote(tostring(cwd), true) })
+				 -- `ya.emit` as of 25.5.28
+                local emit = ya.emit or ya.manager_emit
+                emit("plugin", { st._id, ya.quote(tostring(cwd), true) })
 			end
-		end	
-		
+		end
+
 		ps.sub("cd", callback)
 		ps.sub("tab", callback)
 	end,
@@ -49,4 +54,3 @@ return {
 		end
 	end,
 }
-
