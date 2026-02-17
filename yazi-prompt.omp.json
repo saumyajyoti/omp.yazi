@@ -42,14 +42,14 @@
     "gb_neutral_yellow": "#d79921"
   },
   "var": {
-    "Dir": "📂",
+    "Dir": " ",
     "Documents": "📝",
     "Downloads": "📥",
     "Duration": "\u231b",
     "Exit": "\u21a9\ufe0f",
     "GitHub": "\ueba1",
     "Home": "🏠",
-    "Host": " ",
+    "Host": "💻 ",
     "LeftDelim": "\ue0b3",
     "LeftSep": "\ue0b2",
     "LeftSepRound": "\ue0b6",
@@ -75,7 +75,7 @@
             "cache_duration": "none"
           },
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b0",
+          "trailing_diamond": "\ue0b4 ",
           "template": "{{if .Root}}{{.Var.root}}{{else}}{{.Var.user}}{{end}}{{.UserName}} {{.Var.Host}}{{ .HostName }}{{ if .SSHSession }} {{.Var.ssh}}{{ end }}",
           "foreground": "p:gb_dark0_hard",
           "background": "p:gb_bright_purple",
@@ -96,9 +96,9 @@
             "mixed_threshold": 6,
             "style": "mixed"
           },
-          "leading_diamond": "<transparent,#427b58>\ue0b0</>",
-          "trailing_diamond": "\ue0b0",
-          "template": "<#fabd2f,#427b58>{{.Var.Dir}}</><#427b58,p:gb_bright_aqua>{{.Var.RightSep}}</><transparent,p:gb_bright_aqua> {{ .Path}}</>",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "<p:gb_faded_yellow>{{.Var.Dir}}</> <transparent>{{ .Path}}</>",
           "foreground": "transparent",
           "background": "p:gb_bright_aqua",
           "type": "path",
@@ -119,8 +119,8 @@
               "Unmerged": "󰰧 %d"
             }
           },
-          "leading_diamond": "<transparent,background>\ue0b0</>",
-          "trailing_diamond": "\ue0b0",
+          "leading_diamond": "<transparent,background>\ue0b4</>",
+          "trailing_diamond": "\ue0b4",
           "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }} -> {{.Upstream}}{{ end }}{{ if .Working.Changed }}<p:gb_faded_red> {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }}{{ end }}{{ if .Staging.Changed }} <p:gb_faded_green>{{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \uf51e {{ .StashCount }}{{ end }} ",
           "foreground": "#193549",
           "background": "#fffb38",
@@ -140,7 +140,7 @@
           },
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
           "foreground": "#ffffff",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "\ue0b4",
           "background": "#6CA35E",
           "type": "node",
           "style": "powerline"
@@ -153,7 +153,7 @@
           },
           "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "foreground": "#111111",
-          "powerline_symbol": "\ue0b0",
+          "powerline_symbol": "\ue0b4",
           "background": "#FFDE57",
           "type": "python",
           "style": "powerline"
